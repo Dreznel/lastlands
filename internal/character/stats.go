@@ -1,13 +1,13 @@
 package character
 
-import "github.com/dreznel/lastlands/v2/lastlands/internal/roller"
+import "github.com/dreznel/lastlands/v2/internal/roller"
 
 type BasicStats struct {
 	Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma AbilityScore
 }
 
 func GenerateBasicStats() BasicStats {
-	var statValues map[string]int
+	statValues := make(map[string]int)
 	statValues["Strength"] = roller.RollAbilityScore()
 	statValues["Dexterity"] = roller.RollAbilityScore()
 	statValues["Constitution"] = roller.RollAbilityScore()

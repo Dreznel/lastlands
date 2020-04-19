@@ -6,10 +6,19 @@ package display
 
 // If this proves too difficult, I might just scrap this, but I thought it'd be fun
 // to try.
+
+// TODO: try https://github.com/olekukonko/tablewriter
+
 import (
 	"github.com/dreznel/lastlands/v2/internal/character"
 	"github.com/rodaine/table"
 )
+
+func GetCharacterSheetTables(seeker character.Seeker) table.Table {
+	tbl := table.New("CORE Memories", "Stats")
+	tbl.AddRow(CoreMemoriesTable(seeker), BasicStatTable(seeker))
+	return tbl
+}
 
 func BasicStatTable(seeker character.Seeker) table.Table {
 	tbl := table.New("Attribute", "Bonus", "Defense")
@@ -18,6 +27,14 @@ func BasicStatTable(seeker character.Seeker) table.Table {
 		tbl.AddRow(key, abilityScore.Bonus, abilityScore.Defense)
 	}
 
+	return tbl
+}
+
+func CoreMemoriesTable(seeker character.Seeker) table.Table {
+	tbl := table.New("d6", "Type", "Memory")
+	tbl.AddRow("1/2", seeker.CoreAttributes.First.GetType(), seeker.CoreAttributes.First.GetDescription())
+	tbl.AddRow("3/4", seeker.CoreAttributes.Second.GetType(), seeker.CoreAttributes.Second.GetDescription())
+	tbl.AddRow("5/6", seeker.CoreAttributes.Third.GetType(), seeker.CoreAttributes.Third.GetDescription())
 	return tbl
 }
 

@@ -79,6 +79,7 @@ func createCharacterInterface() {
 	fmt.Println(fmt.Sprintf("They call me %s, here", seeker.Name))
 	fmt.Println("----")
 	fmt.Println(fmt.Sprintf("Core Memories: %v", seeker.CoreAttributes))
-	display.BasicStatTable(seeker).Print()
+	display.GetCharacterSheetTables(seeker).Print()
+	//display.BasicStatTable(seeker).Print()
 	//fmt.Println(fmt.Sprintf("Base stats:\n %v", seeker.AbilityScores))
 }

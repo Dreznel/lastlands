@@ -6,6 +6,17 @@ type BasicStats struct {
 	Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma AbilityScore
 }
 
+func AbilityScoresToMap(bs BasicStats) map[string]AbilityScore {
+	statValues := make(map[string]AbilityScore)
+	statValues["Strength"] = bs.Strength
+	statValues["Dexterity"] = bs.Dexterity
+	statValues["Constitution"] = bs.Constitution
+	statValues["Intelligence"] = bs.Intelligence
+	statValues["Wisdom"] = bs.Wisdom
+	statValues["Charisma"] = bs.Charisma
+	return statValues
+}
+
 func GenerateBasicStats() BasicStats {
 	statValues := make(map[string]int)
 	statValues["Strength"] = roller.RollAbilityScore()

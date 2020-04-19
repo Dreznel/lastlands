@@ -7,8 +7,11 @@ import (
 	"time"
 )
 
-func RollDice(amount, sides int) []int {
+func init() {
 	rand.Seed(time.Now().UnixNano())
+}
+
+func RollDice(amount, sides int) []int {
 	min := 1
 	max := sides
 

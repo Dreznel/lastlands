@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/dreznel/lastlands/v2/internal/character"
+	"github.com/dreznel/lastlands/v2/internal/display"
 
 	"github.com/AlecAivazis/survey/v2"
 )
@@ -78,5 +79,6 @@ func createCharacterInterface() {
 	fmt.Println(fmt.Sprintf("They call me %s, here", seeker.Name))
 	fmt.Println("----")
 	fmt.Println(fmt.Sprintf("Core Memories: %v", seeker.CoreAttributes))
-	fmt.Println(fmt.Sprintf("Base stats:\n %v", seeker.AbilityScores))
+	display.BasicStatTable(seeker).Print()
+	//fmt.Println(fmt.Sprintf("Base stats:\n %v", seeker.AbilityScores))
 }
